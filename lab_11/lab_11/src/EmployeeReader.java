@@ -1,13 +1,13 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.HashSet;
+import java.util.TreeSet;
 import java.util.Iterator;
 
-//version 2 with HashSet
+//version 3 with TreeSet
 public class EmployeeReader {
     public static void main(String[] args) {
-        HashSet<String> employees = new HashSet<>();
+        TreeSet<String> employees = new TreeSet<>();
         String filePath = "employees.txt";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -23,7 +23,7 @@ public class EmployeeReader {
         }
 
         System.out.println("\n=== Collection Size ===");
-        System.out.println("Total number of unique employees: " + employees.size());
+        System.out.println("Total number of employees: " + employees.size());
 
         System.out.println("\n=== Method 1: Standard for loop (using array conversion) ===");
         String[] employeeArray = employees.toArray(new String[0]);
@@ -45,16 +45,6 @@ public class EmployeeReader {
             String employee = iterator.next();
             System.out.println(iteratorCounter + ". " + employee);
             iteratorCounter++;
-        }
-
-        System.out.println("\n=== Checking if specific employees exist using contains() ===");
-        String[] checkEmployees = {"John Smith", "Anna Taylor", "Mark Johnson"};
-        for (String name : checkEmployees) {
-            if (employees.contains(name)) {
-                System.out.println("✓ " + name + " exists in the collection");
-            } else {
-                System.out.println("✗ " + name + " does NOT exist in the collection");
-            }
         }
     }
 }
