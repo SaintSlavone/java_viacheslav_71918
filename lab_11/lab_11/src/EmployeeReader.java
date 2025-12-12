@@ -1,12 +1,13 @@
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.Iterator;
 
+//version 2 with HashSet
 public class EmployeeReader {
     public static void main(String[] args) {
-        ArrayList<String> employees = new ArrayList<>();
+        HashSet<String> employees = new HashSet<>();
         String filePath = "employees.txt";
 
         try (BufferedReader reader = new BufferedReader(new FileReader(filePath))) {
@@ -22,11 +23,12 @@ public class EmployeeReader {
         }
 
         System.out.println("\n=== Collection Size ===");
-        System.out.println("Total number of employees: " + employees.size());
+        System.out.println("Total number of unique employees: " + employees.size());
 
-        System.out.println("\n=== Method 1: Standard for loop ===");
-        for (int i = 0; i < employees.size(); i++) {
-            System.out.println((i + 1) + ". " + employees.get(i));
+        System.out.println("\n=== Method 1: Standard for loop (using array conversion) ===");
+        String[] employeeArray = employees.toArray(new String[0]);
+        for (int i = 0; i < employeeArray.length; i++) {
+            System.out.println((i + 1) + ". " + employeeArray[i]);
         }
 
         System.out.println("\n=== Method 2: For-each loop ===");
@@ -43,6 +45,16 @@ public class EmployeeReader {
             String employee = iterator.next();
             System.out.println(iteratorCounter + ". " + employee);
             iteratorCounter++;
+        }
+
+        System.out.println("\n=== Checking if specific employees exist using contains() ===");
+        String[] checkEmployees = {"John Smith", "Anna Taylor", "Mark Johnson"};
+        for (String name : checkEmployees) {
+            if (employees.contains(name)) {
+                System.out.println("✓ " + name + " exists in the collection");
+            } else {
+                System.out.println("✗ " + name + " does NOT exist in the collection");
+            }
         }
     }
 }
