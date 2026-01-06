@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Main Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" th:href="@{/styles/styles.css}" />
+</head>
+<body>
+    <div class="wrapper">
+        <h1>Hello Vistula, in my first Spring controller</h1>
+        <a th:href="@{/greeting?name=Vistula}">Go to Greeting Page</a>
+    </div>
+</body>
+</html>
