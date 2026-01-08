@@ -54,6 +54,15 @@ src/
 
 7. Open your browser and navigate to `http://localhost:8080`
 
+## How project is working
+
+On the main page we can see heading "Hello Vistula, in my first Spring controller", and button "Go to Greeting Page" that is navigating us to the next page.
+You can see how first main page is looks like on a screenshot here "/screenshots/main_page.png".
+
+After navigating to the greeting page, our gaze is met by a welcoming headline and a portrait of the inimitable Viacheslav. In URL line you can see parameter name, by editing this
+parameter (for example name=Vistula or name=hello), after press Enter button you will see different result in headline on greeting page.
+"/screenshots/greeting_page.png".
+
 ## Author
 
 Viacheslav Kostenko
